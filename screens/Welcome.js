@@ -1,10 +1,12 @@
-import { View, Text, Pressable, Image } from 'react-native'
+import { View, Text, Pressable, Image, Dimensions } from 'react-native'
 import React from 'react'
 import { LinearGradient } from "expo-linear-gradient";
 import COLORS from '../constants/colors';
 import Button from '../components/Button';
 
 const Welcome = ({ navigation }) => {
+    const windowWidth = Dimensions.get('window').width;
+    const windowHeight = Dimensions.get('window').height;
 
     return (
         <LinearGradient
@@ -18,14 +20,14 @@ const Welcome = ({ navigation }) => {
                     <Image
                         source={require("../assets/car1.png")}
                         style={{
-                            height: 100,
-                            width: 100,
+                            height: windowHeight * 0.15,
+                            width: windowHeight * 0.15,
                             borderRadius: 20,
                             position: "absolute",
-                            top: 10,
+                            top: windowHeight * 0.02,
                             transform: [
-                                { translateX: 20 },
-                                { translateY: 50 },
+                                { translateX: windowWidth * 0.05 },
+                                { translateY: windowHeight * 0.05 },
                                 { rotate: "-15deg" }
                             ]
                         }}
@@ -34,15 +36,15 @@ const Welcome = ({ navigation }) => {
                     <Image
                         source={require("../assets/car3.jpeg")}
                         style={{
-                            height: 100,
-                            width: 100,
+                            height: windowHeight * 0.15,
+                            width: windowHeight * 0.15,
                             borderRadius: 20,
                             position: "absolute",
-                            top: -30,
-                            left: 100,
+                            top: -windowHeight * 0.04,
+                            left: windowWidth * 0.4,
                             transform: [
-                                { translateX: 50 },
-                                { translateY: 50 },
+                                { translateX: windowWidth * 0.1 },
+                                { translateY: windowHeight * 0.05 },
                                 { rotate: "-5deg" }
                             ]
                         }}
@@ -51,15 +53,15 @@ const Welcome = ({ navigation }) => {
                     <Image
                         source={require("../assets/car4.jpg")}
                         style={{
-                            width: 100,
-                            height: 100,
+                            width: windowHeight * 0.15,
+                            height: windowHeight * 0.15,
                             borderRadius: 20,
                             position: "absolute",
-                            top: 130,
-                            left: -50,
+                            top: windowHeight * 0.18,
+                            left: -windowHeight * 0.1,
                             transform: [
-                                { translateX: 50 },
-                                { translateY: 50 },
+                                { translateX: windowWidth * 0.1 },
+                                { translateY: windowHeight * 0.05 },
                                 { rotate: "15deg" }
                             ]
                         }}
@@ -68,15 +70,15 @@ const Welcome = ({ navigation }) => {
                     <Image
                         source={require("../assets/car2.png")}
                         style={{
-                            height: 200,
-                            width: 200,
+                            height: windowHeight * 0.25,
+                            width: windowHeight * 0.25,
                             borderRadius: 20,
                             position: "absolute",
-                            top: 110,
-                            left: 100,
+                            top: windowHeight * 0.16,
+                            left: windowWidth * 0.4,
                             transform: [
-                                { translateX: 50 },
-                                { translateY: 50 },
+                                { translateX: windowWidth * 0.1 },
+                                { translateY: windowHeight * 0.05 },
                                 { rotate: "-15deg" }
                             ]
                         }}
@@ -86,30 +88,30 @@ const Welcome = ({ navigation }) => {
                 {/* content  */}
 
                 <View style={{
-                    paddingHorizontal: 22,
+                    paddingHorizontal: windowWidth * 0.05,
                     position: "absolute",
-                    top: 400,
+                    top: windowHeight * 0.45,
                     width: "100%"
                 }}>
                     <Text style={{
-                        fontSize: 50,
-                        fontWeight: 800,
+                        fontSize: windowWidth * 0.1,
+                        fontWeight: '800',
                         color: COLORS.white
                     }}>Chào mừng đến</Text>
                     <Text style={{
-                        fontSize: 46,
-                        fontWeight: 800,
+                        fontSize: windowWidth * 0.092,
+                        fontWeight: '800',
                         color: COLORS.white
                     }}>Hệ thống gọi xe</Text>
 
-                    <View style={{ marginVertical: 22 }}>
+                    <View style={{ marginVertical: windowHeight * 0.022 }}>
                         <Text style={{
-                            fontSize: 16,
+                            fontSize: windowWidth * 0.032,
                             color: COLORS.white,
-                            marginVertical: 4
+                            marginVertical: windowHeight * 0.008
                         }}>Nhanh gọn nhẹ</Text>
                         <Text style={{
-                            fontSize: 16,
+                            fontSize: windowWidth * 0.032,
                             color: COLORS.white,
                         }}>Uy tín chất lượng trong từng chuyến đi</Text>
                     </View>
@@ -118,28 +120,28 @@ const Welcome = ({ navigation }) => {
                         title="Thử Ngay"
                         onPress={() => navigation.navigate("Signup")}
                         style={{
-                            marginTop: 22,
+                            marginTop: windowHeight * 0.022,
                             width: "100%"
                         }}
                     />
 
                     <View style={{
                         flexDirection: "row",
-                        marginTop: 12,
+                        marginTop: windowHeight * 0.012,
                         justifyContent: "center"
                     }}>
                         <Text style={{
-                            fontSize: 16,
+                            fontSize: windowWidth * 0.032,
                             color: COLORS.white
                         }}>Đã có tài khoản?</Text>
                         <Pressable
                             onPress={() => navigation.navigate("Login")}
                         >
                             <Text style={{
-                                fontSize: 16,
+                                fontSize: windowWidth * 0.032,
                                 color: COLORS.white,
                                 fontWeight: "bold",
-                                marginLeft: 4
+                                marginLeft: windowWidth * 0.008
                             }}>Đăng nhập</Text>
                         </Pressable>
 
@@ -150,4 +152,4 @@ const Welcome = ({ navigation }) => {
     )
 }
 
-export default Welcome
+export default Welcome;
