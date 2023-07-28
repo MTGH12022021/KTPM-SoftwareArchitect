@@ -5,6 +5,28 @@ import COLORS from '../constants/colors';
 import { Ionicons } from "@expo/vector-icons";
 import Checkbox from "expo-checkbox"
 import Button from '../components/Button';
+import axios from 'axios';
+
+const handleSignup = async () => {
+    const email = "tranxuanquang@email.com";
+    const phoneNumber = "+84123456789";
+    const password = "password";
+
+    try {
+        const response = await axios.post('http://localhost:5000/signup', {
+            email,
+            phoneNumber,
+            password,
+        });
+
+        console.log('Kết quả đăng ký:', response.data);
+        navigation.navigate("Login");
+        
+    } catch (error) {
+        console.error('Đăng ký thất bại:', error.message);
+    }
+};
+
 
 const Signup = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
@@ -163,7 +185,9 @@ const Signup = ({ navigation }) => {
                         marginTop: 18,
                         marginBottom: 4,
                     }}
+                    onPress={handleSignup} // Thêm phần này để gọi hàm xử lý đăng ký khi người dùng nhấn nút
                 />
+
 
                 <View style={{ flexDirection: 'row', alignItems: 'center', marginVertical: 20 }}>
                     <View
