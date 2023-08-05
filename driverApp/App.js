@@ -4,6 +4,7 @@ import { store } from "./store";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import HomeScreen from "./Screens/HomeScreen";
 import MapScreen from "./Screens/MapScreen";
+import ProfileScreen from "./Screens/ProfileScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
