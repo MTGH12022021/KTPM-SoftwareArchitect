@@ -1,0 +1,11 @@
+dist
+src.*
+.vscode
+log
+dump.rd
+venv
+*.env
+*public
+*.pyc
+*/lib
+build
