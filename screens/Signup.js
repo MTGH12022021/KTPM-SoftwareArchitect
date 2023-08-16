@@ -7,28 +7,28 @@ import Checkbox from "expo-checkbox"
 import Button from '../components/Button';
 import axios from 'axios';
 
-const handleSignup = async () => {
-    const email = "tranxuanquang@email.com";
-    const phoneNumber = "+84123456789";
-    const password = "password";
-
-    try {
-        const response = await axios.post('http://localhost:5000/signup', {
-            email,
-            phoneNumber,
-            password,
-        });
-
-        console.log('Kết quả đăng ký:', response.data);
-        navigation.navigate("Login");
-        
-    } catch (error) {
-        console.error('Đăng ký thất bại:', error.message);
-    }
-};
-
 
 const Signup = ({ navigation }) => {
+    const handleSignup = async () => {
+        const email = "tranxuanquang@email.com";
+        const phoneNumber = "+84123456789";
+        const password = "password";
+
+        try {
+            const response = await axios.post('http://10.0.2.2:5000/signup', {
+                email,
+                phoneNumber,
+                password,
+            });
+
+            console.log('Kết quả đăng ký:', response.data);
+            navigation.navigate("Login");
+
+        } catch (error) {
+            console.error('Đăng ký thất bại:', error.message);
+        }
+    };
+
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
     return (

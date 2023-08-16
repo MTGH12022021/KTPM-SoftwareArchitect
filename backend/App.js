@@ -16,6 +16,7 @@ const users = [];
 // Route xử lý đăng ký
 app.post('/signup', (req, res) => {
     try {
+        console.log(users);
         const { email, phoneNumber, password } = req.body;
 
         if (users.some(user => user.email === email)) {
@@ -36,6 +37,7 @@ app.post('/signup', (req, res) => {
 
 // Route xử lý đăng nhập
 app.post('/login', (req, res) => {
+    console.log(req.body);
     const { email, password } = req.body;
 
     // Kiểm tra xem người dùng có tồn tại và thông tin đăng nhập chính xác không

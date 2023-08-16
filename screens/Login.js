@@ -5,11 +5,32 @@ import COLORS from '../constants/colors';
 import { Ionicons } from "@expo/vector-icons";
 import Checkbox from "expo-checkbox"
 import Button from '../components/Button';
+import Axios from 'axios';
 
 const Login = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
+    const email = "tranxuanquang@email.com";
+    const phoneNumber = "+84123456789";
+    const password = "password";
 
+    const handleSignIn = async () => {
+        try {
+            const response = await Axios.post('http://10.0.2.2:5000/login', {
+                email: email,
+                password: password
+            });
+
+            // Xử lý phản hồi từ máy chủ sau khi đăng nhập thành công
+            console.log('Đăng nhập thành công!', response.data);
+
+            // Đoạn mã để điều hướng sau khi đăng nhập thành công
+            // navigation.navigate('Home'); // Ví dụ: chuyển hướng đến màn hình Home
+        } catch (error) {
+            // Xử lý lỗi khi đăng nhập thất bại
+            console.error('Đăng nhập thất bại!', error);
+        }
+    };
     return (
         <SafeAreaView style={{ flex: 1, backgroundColor: COLORS.white }}>
             <View style={{ flex: 1, marginHorizontal: 22 }}>
@@ -117,11 +138,11 @@ const Login = ({ navigation }) => {
                 </View>
 
                 <Button
-                    title="Đăng nhập"
-                    filled
+                    title='Đăng nhập'
+                    onPress={handleSignIn}
                     style={{
                         marginTop: 18,
-                        marginBottom: 4,
+                        marginBottom: 4
                     }}
                 />
 
