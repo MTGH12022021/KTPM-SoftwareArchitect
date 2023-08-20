@@ -11,15 +11,18 @@ import requests
 import json
 
 @worker.task(name="worker.rides", rate_limit="1000/s", backend=RPCBackend(app=worker))
-def rides(user_name, phone, pick_up_address, type_car):
+def rides(user_name, phone, pick_up_address, type_car, plugin=False):
     try:
         if not rides_model.find_one({"phone": phone, "pick_up_address": pick_up_address}):
             params = {
                 "key": "lYCPmdegPpRgc8Phv3J9dBHWr8KooMLc",
                 "location": pick_up_address
             }
-            response = requests.get(
-                "https://www.mapquestapi.com/geocoding/v1/address", params=params).json()
+            if not plugin:
+                response = requests.get(
+                    "https://www.mapquestapi.com/geocoding/v1/address", params=params).json()
+            else:
+                return                
 
             rides_model.insert_one({
                 "user_name": user_name,
