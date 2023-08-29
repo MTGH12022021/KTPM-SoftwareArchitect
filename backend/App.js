@@ -1,4 +1,3 @@
-// Import các thư viện cần thiết
 const express = require('express');
 const app = express();
 const jwt = require('jsonwebtoken');
@@ -6,17 +5,15 @@ const cors = require('cors');
 
 const PORT = 5000;
 
-// Middleware để xử lý JSON trong yêu cầu
+
 app.use(express.json());
-// Sử dụng middleware CORS
-// app.use(cors());
+
 
 const users = [];
 
-// Route xử lý đăng ký
 app.post('/signup', (req, res) => {
     try {
-        console.log(users);
+        console.log(req.body);
         const { email, phoneNumber, password } = req.body;
 
         if (users.some(user => user.email === email)) {

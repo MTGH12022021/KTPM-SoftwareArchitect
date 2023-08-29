@@ -9,11 +9,10 @@ import axios from 'axios';
 
 
 const Signup = ({ navigation }) => {
+    const [email, setEmail] = useState(""); // State to store email
+    const [phoneNumber, setPhoneNumber] = useState(""); // State to store phone number
+    const [password, setPassword] = useState(""); // State to store password
     const handleSignup = async () => {
-        const email = "tranxuanquang@email.com";
-        const phoneNumber = "+84123456789";
-        const password = "password";
-
         try {
             const response = await axios.post('http://10.0.2.2:5000/signup', {
                 email,
@@ -74,6 +73,8 @@ const Signup = ({ navigation }) => {
                             style={{
                                 width: "100%"
                             }}
+                            value={email}
+                            onChangeText={setEmail}
                         />
                     </View>
                 </View>
@@ -107,7 +108,6 @@ const Signup = ({ navigation }) => {
                                 height: "100%"
                             }}
                         />
-
                         <TextInput
                             placeholder='Nhập số điện thoại'
                             placeholderTextColor={COLORS.black}
@@ -115,6 +115,8 @@ const Signup = ({ navigation }) => {
                             style={{
                                 width: "80%"
                             }}
+                            value={phoneNumber}
+                            onChangeText={setPhoneNumber}
                         />
                     </View>
                 </View>
@@ -143,6 +145,8 @@ const Signup = ({ navigation }) => {
                             style={{
                                 width: "100%"
                             }}
+                            value={password}
+                            onChangeText={setPassword}
                         />
 
                         <TouchableOpacity
@@ -185,7 +189,7 @@ const Signup = ({ navigation }) => {
                         marginTop: 18,
                         marginBottom: 4,
                     }}
-                    onPress={handleSignup} // Thêm phần này để gọi hàm xử lý đăng ký khi người dùng nhấn nút
+                    onPress={handleSignup}
                 />
 
 

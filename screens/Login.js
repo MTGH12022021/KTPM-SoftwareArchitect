@@ -10,24 +10,16 @@ import Axios from 'axios';
 const Login = ({ navigation }) => {
     const [isPasswordShown, setIsPasswordShown] = useState(false);
     const [isChecked, setIsChecked] = useState(false);
-    const email = "tranxuanquang@email.com";
-    const phoneNumber = "+84123456789";
-    const password = "password";
-
+    const [email, setEmail] = useState(""); // State to store email
+    const [password, setPassword] = useState(""); // State to store password
     const handleSignIn = async () => {
         try {
             const response = await Axios.post('http://10.0.2.2:5000/login', {
                 email: email,
                 password: password
             });
-
-            // Xử lý phản hồi từ máy chủ sau khi đăng nhập thành công
             console.log('Đăng nhập thành công!', response.data);
-
-            // Đoạn mã để điều hướng sau khi đăng nhập thành công
-            // navigation.navigate('Home'); // Ví dụ: chuyển hướng đến màn hình Home
         } catch (error) {
-            // Xử lý lỗi khi đăng nhập thất bại
             console.error('Đăng nhập thất bại!', error);
         }
     };
@@ -74,6 +66,8 @@ const Login = ({ navigation }) => {
                             style={{
                                 width: "100%"
                             }}
+                            value={email} // Bind the value of the input to the email state
+                            onChangeText={setEmail} // Update the email state when the input changes
                         />
                     </View>
                 </View>
@@ -102,6 +96,8 @@ const Login = ({ navigation }) => {
                             style={{
                                 width: "100%"
                             }}
+                            value={password} // Bind the value of the input to the email state
+                            onChangeText={setPassword} // Update the email state when the input changes
                         />
 
                         <TouchableOpacity
