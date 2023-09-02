@@ -19,7 +19,7 @@ const Login = ({ navigation }) => {
                 password: password
             });
             console.log('Đăng nhập thành công!', response.data);
-            navigation.navigate("HomeScreen");
+            navigation.navigate("BottomTabNavigation");
         } catch (error) {
             console.error('Sai thông tin tài khoản hoặc mật khẩu');
         }

@@ -6,7 +6,6 @@ const session = require('express-session');
 
 const PORT = 5000;
 
-
 app.use(express.json());
 
 app.use(session({

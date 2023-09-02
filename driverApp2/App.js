@@ -1,14 +1,12 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from "@react-navigation/native-stack"
-import { Login, Signup, Welcome, HomeScreen } from "./screens";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import * as SplashScreen from "expo-splash-screen";
 import { useFonts } from "expo-font";
 import { Details } from "./screens"
 import { useCallback } from "react";
 import BottomTabNavigation from "./navigations/BottomTabNavigation";
 
-const Stack = createNativeStackNavigator();
-
+const Stack = createNativeStackNavigator()
 export default function App() {
 
   const [fontsLoaded] = useFonts({
@@ -27,37 +25,9 @@ export default function App() {
   if (!fontsLoaded) {
     return null
   }
-
   return (
     <NavigationContainer onReady={onLayoutRootView}>
-      <Stack.Navigator
-        initialRouteName='Welcome'
-      >
-        <Stack.Screen
-          name="Welcome"
-          component={Welcome}
-          options={{
-            headerShown: false
-          }}
-        />
-        <Stack.Screen
-          name="Login"
-          component={Login}
-          options={{
-            headerShown: false
-          }}
-        />
-        <Stack.Screen
-          name="Signup"
-          component={Signup}
-          options={{
-            headerShown: false
-          }}
-        />
-        <Stack.Screen
-          name="HomeScreen"
-          component={HomeScreen}
-        />
+      <Stack.Navigator>
         <Stack.Screen
           name="BottomTabNavigation"
           component={BottomTabNavigation}
@@ -83,3 +53,4 @@ export default function App() {
     </NavigationContainer>
   );
 }
+
