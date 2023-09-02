@@ -19,8 +19,9 @@ const Login = ({ navigation }) => {
                 password: password
             });
             console.log('Đăng nhập thành công!', response.data);
+            navigation.navigate("HomeScreen");
         } catch (error) {
-            console.error('Đăng nhập thất bại!', error);
+            console.error('Sai thông tin tài khoản hoặc mật khẩu');
         }
     };
     return (

@@ -9,15 +9,17 @@ import axios from 'axios';
 
 
 const Signup = ({ navigation }) => {
-    const [email, setEmail] = useState(""); // State to store email
-    const [phoneNumber, setPhoneNumber] = useState(""); // State to store phone number
-    const [password, setPassword] = useState(""); // State to store password
+    const [email, setEmail] = useState("");
+    const [phoneNumber, setPhoneNumber] = useState("");
+    const [password, setPassword] = useState("");
+    const role = "admin";
     const handleSignup = async () => {
         try {
             const response = await axios.post('http://10.0.2.2:5000/signup', {
                 email,
                 phoneNumber,
                 password,
+                role,
             });
 
             console.log('Kết quả đăng ký:', response.data);
