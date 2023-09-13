@@ -1,0 +1,61 @@
+{
+  "expo": {
+    "name": "car-booking",
+    "slug": "car-booking",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.thevihuynh.carbooking",
+      "infoPlist": {
+        "NSPhotoLibraryUsageDescription": "To select photos from your library",
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "Allow $(PRODUCT_NAME) to use your location",
+        "UIBackgroundModes": ["location", "fetch"]
+      }
+    },
+    "android": {
+      "userInterfaceStyle": "dark",
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      },
+      "permissions": [
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "CAMERA",
+        "MEDIA_LIBRARY",
+        "LOCATION",
+        "ACCESS_BACKGROUND_LOCATION"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-location",
+          {
+            "locationWhenInUsePermission": "Allow $(PRODUCT_NAME) to use your location."
+          }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "8671c500-e4a3-4c9d-bb2c-545f179927a1"
+      }
+    },
+    "permissions": ["camera"]
+  }
+  
+}
